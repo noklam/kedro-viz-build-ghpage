@@ -30,20 +30,18 @@ runs:
       run: |
         set -ux
         python -m pip install --upgrade pip
-        git clone https://github.com/kedro-org/kedro-viz.git
-        cd kedro-viz
-        git checkout noklam/github-page-action
-        pip install -e package
-        cd ..
-        pip install -e src
-        pip install -U fsspec
-        kedro viz-build
+        python -m pip install "kedro-viz>=7.1.0"
+        pip install -r requirements.txt
+        kedro run
+        kedro viz build
+
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ inputs.ghtoken }}
         force_orphan: true
-        publish_dir: ./_sites
+        publish_dir: ./build
         # The following lines assign commit authorship to the official GH-Actions bot for deploys to `gh-pages` branch.
         # You can swap them out with your own user credentials.
         user_name: github-actions[bot]
