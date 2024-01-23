@@ -1,0 +1,14 @@
+{
+  "type": "pandas.csv_dataset.CSVDataset",
+  "filepath": "/home/runner/work/kedro-viz-build-ghpage/kedro-viz-build-ghpage/data/01_raw/companies.csv",
+  "plot": null,
+  "image": null,
+  "tracking_data": null,
+  "run_command": null,
+  "preview": null,
+  "stats": {
+    "rows": 10019,
+    "columns": 5,
+    "file_size": 223318
+  }
+}

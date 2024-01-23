@@ -1,0 +1,14 @@
+{
+  "type": "pandas.excel_dataset.ExcelDataset",
+  "filepath": "/home/runner/work/kedro-viz-build-ghpage/kedro-viz-build-ghpage/data/01_raw/shuttles.xlsx",
+  "plot": null,
+  "image": null,
+  "tracking_data": null,
+  "run_command": null,
+  "preview": null,
+  "stats": {
+    "rows": 15531,
+    "columns": 13,
+    "file_size": 936864
+  }
+}

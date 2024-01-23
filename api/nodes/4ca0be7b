@@ -1,0 +1,19 @@
+{
+  "type": "tracking.json_dataset.JSONDataset",
+  "filepath": "/home/runner/work/kedro-viz-build-ghpage/kedro-viz-build-ghpage/data/09_tracking/companies_columns.json",
+  "plot": null,
+  "image": null,
+  "tracking_data": {
+    "columns": [
+      "id",
+      "company_rating",
+      "company_location",
+      "total_fleet_count",
+      "iata_approved"
+    ],
+    "data_type": "companies"
+  },
+  "run_command": "kedro run --to-outputs=companies_columns",
+  "preview": null,
+  "stats": null
+}

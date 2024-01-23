@@ -1,0 +1,14 @@
+{
+  "type": "tracking.metrics_dataset.MetricsDataset",
+  "filepath": "/home/runner/work/kedro-viz-build-ghpage/kedro-viz-build-ghpage/data/09_tracking/metrics.json",
+  "plot": null,
+  "image": null,
+  "tracking_data": {
+    "r2_score": 0.3869831978103261,
+    "mae": 553.5441557265525,
+    "max_error": 11857.121158975522
+  },
+  "run_command": "kedro run --to-outputs=metrics",
+  "preview": null,
+  "stats": null
+}

@@ -1,0 +1,10 @@
+{
+  "type": "pickle.pickle_dataset.PickleDataset",
+  "filepath": "/home/runner/work/kedro-viz-build-ghpage/kedro-viz-build-ghpage/data/06_models/regressor.pickle",
+  "plot": null,
+  "image": null,
+  "tracking_data": null,
+  "run_command": "kedro run --to-outputs=regressor",
+  "preview": null,
+  "stats": null
+}
