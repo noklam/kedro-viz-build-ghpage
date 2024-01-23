@@ -1,0 +1,31 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kedro_viz_build_ghpage"
+readme = "README.md"
+dynamic = [ "dependencies", "version",]
+
+[project.scripts]
+kedro-viz-build-ghpage = "kedro_viz_build_ghpage.__main__:main"
+
+[tool.kedro]
+package_name = "kedro_viz_build_ghpage"
+project_name = "kedro-viz-build-ghpage"
+kedro_init_version = "0.19.1"
+tools = [ "Kedro Viz",]
+example_pipeline = "True"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
+
+[tool.setuptools.dynamic.version]
+attr = "kedro_viz_build_ghpage.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false
