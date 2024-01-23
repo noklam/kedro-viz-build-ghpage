@@ -1,0 +1,14 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: noklam/kedro-viz-build-ghpage/ghpage@main
+        # with:
+        # input params if there is any
+

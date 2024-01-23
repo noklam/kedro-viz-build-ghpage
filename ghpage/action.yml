@@ -1,0 +1,50 @@
+name: 'build-docs'
+description: 'Create docs with nbdev'
+inputs:
+  pre:
+    description: 'Install prerelease nbdev/execnb from master?'
+    required: false
+    default: ''
+  version:
+    description: 'Version of python to set up'
+    required: false
+    default: '3.9'
+  ghtoken:
+    description: 'GitHub token'
+    default: ${{ github.token }}
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.version }}
+        cache: "pip"
+        # cache-dependency-path: pyproject.toml
+    - name: Install Dependencies
+      env:
+        USE_PRE: ${{ inputs.pre }}
+      shell: bash
+      run: |
+        set -ux
+        python -m pip install --upgrade pip
+        git clone https://github.com/kedro-org/kedro-viz.git
+        cd kedro-viz
+        git checkout noklam/github-page-action
+        pip install -e package
+        cd ..
+        pip install -e src
+        pip install -U fsspec
+        kedro viz-build
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ inputs.ghtoken }}
+        force_orphan: true
+        publish_dir: ./_sites
+        # The following lines assign commit authorship to the official GH-Actions bot for deploys to `gh-pages` branch.
+        # You can swap them out with your own user credentials.
+        user_name: github-actions[bot]
+        user_email: 41898282+github-actions[bot]@users.noreply.github.com
